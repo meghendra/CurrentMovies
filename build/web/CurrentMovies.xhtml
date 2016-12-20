@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created by Meghendra Singh on 2016.10.26 
+Copyright © 2016 Meghendra Singh. All rights reserved.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <!-- Do not enter tags before the composition line since they are ignored by JSF -->
+
+    <!-- This page is constructed based on the siteTemplate -->
+    <ui:composition template="/template/siteTemplate.xhtml">
+        <ui:define name="title">
+            <!-- Set the page title -->
+            <h:outputText value="Current Movies"></h:outputText>
+        </ui:define>
+
+        <!-- Create the content for this page below -->
+        <ui:define name="editableContent">
+
+            <div align="center" style="width:40%; margin:0 auto">
+
+                <!-- Error messages will be shown here if any  -->
+                <p:messages id="msgs" showIcon="false"/>
+                <h:outputLabel id="form-error-message" class="errorMessages" value="#{accountManager.statusMessage}"/>
+                <h:form style="margin: 0 auto;width:550px"> 
+
+                    <!--Create the data scroller element that will asynchronously load the movie list-->
+                    <p:dataScroller value="#{movieManager.movies}" var="movie" chunkSize="10" rowIndexVar="#{movie.id}">
+                        <f:facet name="header">
+                            Current Movies Playing in Theaters
+                        </f:facet> 
+
+                        <!--Create a panelGrid for each row in the data scroller-->
+                        <h:panelGrid columns="3" style="width:100%; padding: 0; border-bottom:1.5px solid #A8A8A8" columnClasses="thumbnail,description,arrow">   
+
+                            <!--Insert the movie thumbnail first-->
+                            <p:graphicImage value="#{movie.imageUrl}" style="max-width:120%; height:auto;float:right; padding: 0"/>  
+
+                            <!--Insert the movie details next-->
+                            <p:outputPanel>
+
+                                <!-- 
+                                This anchor tag will make the panel clickable and will show the dialog box containing detailed movie information
+                                corresponding to a row in the data scroller.
+                                -->
+                                <a class="rowlink" href="javascript:void(0)" onclick="PF('picDialog-#{movie.id}').show();">
+                                    <h:panelGrid columns="2">
+                                        <p:outputPanel>
+                                            <h:panelGrid columns="1" cellpadding="0">
+                                                <h:outputText value="#{movie.name}" style="font-size:18px;font-weight: bold"/>
+                                                <p:outputPanel>
+                                                    <p:graphicImage value="resources/images/imdb.jpg" style="float:left;width:30px"/>&nbsp;
+                                                    <h:outputText value="#{movie.imdbRating}" style="font-size:20px"/>
+                                                </p:outputPanel>
+                                                <p:outputPanel>
+                                                    <h:outputText value="#{!empty movie.cast ? movie.cast.get(0) : '-'}" style="font-size:12px"/>                                                
+                                                    <h:outputText value="#{movie.cast.size() > 1 ? (', '.concat(movie.cast.get(1))) : '' }"  style="font-size:12px"/>
+                                                </p:outputPanel>
+                                                <p:outputPanel>
+                                                    <h:outputText value="#{movie.mpaaRating}, #{movie.runtime}, "  style="font-size:14px"/> 
+                                                    <h:outputText value="#{movie.releaseDate}"  style="font-size:14px">
+                                                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                                                    </h:outputText>                                    
+                                                </p:outputPanel>
+                                            </h:panelGrid>
+                                        </p:outputPanel>                                                                   
+                                    </h:panelGrid>
+                                </a>
+                            </p:outputPanel> 
+
+                            <!--Finally insert the arrow image-->
+                            <p:outputPanel style="width:30px; height: 100px">
+                                <a class="rowlink" href="javascript:void(0)" onclick="PF('picDialog-#{movie.id}').show();">
+                                    <h:panelGrid columns="1" style="width:100%; height: 100%">
+                                        <p:graphicImage value="resources/images/arrow.png" style="margin: auto 0;float:right;width:10px"/>
+                                    </h:panelGrid>  
+                                </a>
+                            </p:outputPanel>  
+
+                            <!--End the panelgrid i.e. row containing movie information in the data scroller-->
+                        </h:panelGrid>
+
+                        <!--
+                        Create a dialog box populated with detailed movie information synopsis, critic ratings, etc
+                        corresponding to each row in the data scroller with the appropriate formating
+                        -->
+                        <p:dialog id="picDialog-#{movie.id}" widgetVar="picDialog-#{movie.id}" position="center" modal="true" showEffect="fade" closable="false" draggable="false" closeOnEscape="true" hideEffect="fold" resizable="false">  
+                            <f:facet name="header">
+                                <h:outputText value="#{movie.name}" style="font-size:20px"/>
+                            </f:facet>
+                            <p:panelGrid style="width: 500px" styleClass="fixed-size">
+                                <p:column rowspan="9" style="text-align: center">
+                                    <p:graphicImage value="#{movie.imageUrl}" style="width:300px"/>
+                                </p:column>
+                                    <p:row>
+                                        <p:column colspan="2">
+                                            <p:graphicImage value="resources/images/imdb.jpg" style="text-align:right;float:right;width:50px"/>
+                                        </p:column>
+                                        <p:column colspan="2">
+                                            <h:outputText value="#{movie.imdbRating}" style="text-align:left;float:left;font-size:30px"/>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="4" style="text-align:center;">
+                                            <h:outputText value="#{movie.mpaaRating}, #{movie.runtime}" style="font-size:15px"/>
+                                        </p:column>                                        
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="4" style="text-align:center;">
+                                            <h:outputText value="#{movie.releaseDate}" style="font-size:15px">
+                                                <f:convertDateTime type="date" pattern="MMMMMMM dd, yyyy" />
+                                            </h:outputText>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="6" style="padding-bottom:0px; font-size: large">
+                                            <h:outputText value="Cast"/>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="6" style="padding-top:0px">
+                                            <p:outputPanel>
+                                                <h:outputText value="#{!empty movie.cast ? movie.cast.get(0) : '-'}"/>                                                
+                                                <h:outputText value="#{movie.cast.size() > 1 ? (', '.concat(movie.cast.get(1))) : '' }" />
+                                                <h:outputText value="#{movie.cast.size() > 2 ? (', '.concat(movie.cast.get(2))) : '' }" />
+                                                <h:outputText value="#{movie.cast.size() > 3 ? (', '.concat(movie.cast.get(3))) : '' }" />
+                                                <h:outputText value="#{movie.cast.size() > 4 ? (', '.concat(movie.cast.get(4))) : '' }" />
+                                            </p:outputPanel>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="6" style="padding-bottom:0px; font-size: large">
+                                            <h:outputText value="Movie Info" />
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="6" style="padding-top:0px">
+                                            <p:outputPanel>
+                                                <h:outputText value="#{movie.synopsis}"/>   
+                                            </p:outputPanel>
+                                        </p:column>
+                                    </p:row>
+                                    <p:row>
+                                        <p:column colspan="6" style="text-align: center">
+                                            <p:commandButton value="Back" oncomplete="PF('picDialog-#{movie.id}').hide();"/>
+                                        </p:column>
+                                    </p:row>
+                            </p:panelGrid>
+
+                            <!--End of dialog box corresponding to the movie information row-->
+                        </p:dialog>                   
+
+                        <!--End of datascroller--> 
+                    </p:dataScroller>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+    <!-- Do not enter tags after the composition line since they are ignored by JSF -->
+
+</html>

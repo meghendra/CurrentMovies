@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created by Meghendra Singh on 2016.10.26 
+Copyright © 2016 Meghendra Singh. All rights reserved.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- Do not enter tags before the composition line since they are ignored by JSF -->
+
+    <!-- This page is constructed based on the siteTemplate -->
+    <ui:composition template="/template/siteTemplate.xhtml">
+        
+        <!-- Create the content for this page below -->
+        <ui:define name="editableContent">
+            
+            <!-- 
+            =================================================================================
+            This Image Slider is adapted from http://www.menucool.com/javascript-image-slider 
+            It uses the following:
+                - js-image-slider.css
+                - js-image-slider.js
+                - bullet.png
+            
+            The following references are included in the siteTemplate.xhtml file:
+                <h:outputStylesheet library="css" name="js-image-slider.css" />
+                <script src="resources/js/js-image-slider.js" type="text/javascript"></script>
+            =================================================================================
+            -->
+
+            <div id="sliderFrame">
+                <div id="slider">
+                    <a href="https://www.rottentomatoes.com/m/jack_reacher_never_go_back" target="_blank">
+                        <img src="resources/images/imageSliderPhotos/photo1.jpg" alt="Jack Reacher: Never Go Back (2016)" />
+                    </a>
+                    
+                    <img src="resources/images/imageSliderPhotos/photo2.jpg" alt="Miss Peregrine's Home for Peculiar Children" />
+                    
+                    <img src="resources/images/imageSliderPhotos/photo3.jpg" alt="#captionForPhoto3"  />
+                    
+                    <img src="resources/images/imageSliderPhotos/photo4.jpg" alt=""/>
+                    <img src="resources/images/imageSliderPhotos/photo5.jpg" alt="The Girl On The Train (2016)"/>
+                    
+                    <a href="https://www.rottentomatoes.com/showtimes/?movies=[771407527]" target="_blank">
+                        <img src="resources/images/imageSliderPhotos/photo6.jpg" alt="Click to book: The Magnificent Seven" />
+                    </a>
+                    <a href="https://www.rottentomatoes.com/franchise/marvel_cinematic_universe" target="_blank">
+                    <img src="resources/images/imageSliderPhotos/photo7.jpg" alt="Movies to Marvel at"/>
+                    </a>
+                    <img src="resources/images/imageSliderPhotos/photo8.jpg" alt="Suicide Squad (2016)"/>
+                    
+                    <a href="https://www.rottentomatoes.com/m/dont_breathe_2016" target="_blank">
+                        <img src="resources/images/imageSliderPhotos/photo9.jpg" alt="Don't Breathe (2016)" />
+                    </a>
+                    <img src="resources/images/imageSliderPhotos/photo10.jpg" alt="#captionForPhoto10"  />
+                    
+                    <img src="resources/images/imageSliderPhotos/photo11.jpg" alt=""/>
+                     <a href="https://www.rottentomatoes.com/showtimes/?movies=[771399175]" target="_blank">
+                        <img src="resources/images/imageSliderPhotos/photo12.jpg" alt="Click to book: Deep Water Horizon" />
+                    </a>
+                    
+                </div>
+                
+                <div id="captionForPhoto3" style="display: none;">
+                    Click to watch the trailer: <a href="https://www.youtube.com/watch?v=PM8V3cHdSC4" target="_blank">Red Riding Hood</a>
+                </div>
+                
+                <div id="captionForPhoto10" style="display: none;">
+                    Click to watch the trailer: <a href="https://www.youtube.com/watch?v=3JNLwlcPBPI" target="_blank">Finding Dory (2016)</a>
+                </div>
+
+            </div>
+            <br /><br /><br/>
+
+        </ui:define>
+
+    </ui:composition>
+    <!-- Do not enter tags after the composition line since they are ignored by JSF -->
+
+</html>

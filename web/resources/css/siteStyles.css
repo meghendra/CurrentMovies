@@ -1,0 +1,559 @@
+@import url(http://fonts.googleapis.com/css?family=Cabin:400);
+
+html, body {
+
+    /* Stretch the background image to cover the entire screen. 
+    This is used only if you choose to display a background image. */
+    -webkit-background-size: cover; /* For WebKit */
+    -moz-background-size: cover;    /* For Mozilla */
+    -o-background-size: cover;      /* For Opera */
+    background-size: cover;         /* Generic */
+    background-repeat: no-repeat;   /* Do not repeat the image */
+
+    width: 100%;                    /* Set page width horizontally 100% */
+    height: 100%;                   /* Set page height vertically 100% */
+}
+
+/* Style the text used under the standard body tag */
+body {
+    font-family: "Times New Roman", Times, Serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    color: black;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Style the text used under the paragraph tag */
+p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: left;
+    color: black;
+}
+
+/* Style the text used under header 1 tag*/
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    color: #006400;
+}
+
+/* Style the text used under the header 2 tag*/
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    color: #800000;
+}
+
+/* Style the footer text */
+.smallText {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* Style error messages text */
+.errorMessages {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    color: #FF0000;
+}
+
+/* Style a heading text */
+.heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-style: normal;
+    font-weight: normal;
+    color: #800000;
+}
+
+/* Style form items text */
+.formItemText {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* Left align text */
+.leftAlign {
+    text-align: left;
+}
+
+/* Right align text */
+.rightAlign {
+    text-align: right;
+}
+
+/* Style the output text in dialog to wrap around */
+.scrollableOutputText {
+    white-space: pre-wrap; /* This "preformatted" style keeps the line breaks in the text string */
+    text-align: left;
+    display: block;
+    width: 490px;
+    height: 200px;
+    overflow: auto;
+    color: green;
+}
+
+/* Set the font and color for the anchor tag */
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #800000;
+}
+
+/* remove underlines and other decoration from anchor tags */
+a:visited, a:link {
+    text-decoration: none; /* Do not underline the link in visited state */
+}
+
+/* decorate the anchor tags to glow when hovered over or active*/
+a:active,a:hover {
+    /*text-decoration: underline;  Underline the link in active state */
+    text-decoration: none;
+    color: #cc0033;
+    text-shadow: none;
+    -webkit-transition: 200ms linear 0s;
+    -moz-transition: 200ms linear 0s;
+    -o-transition: 200ms linear 0s;
+    transition: 200ms linear 0s;
+    outline: 0 none;
+}
+
+/*
+===============================
+Site Template Component Styling
+===============================
+
+In XHTML code, we refer to a CSS style defined in a CSS file by using Selectors. 
+
+See CSS Selector Reference at http://www.w3schools.com/cssref/css_selectors.asp
+
+#id defines the style of a page component whose unique identification is id.
+.stylename defines the style of all elements marked as class="stylename".
+
+Since id's are unique, the #id styling is used only once.
+.stylename can be used many times to style a class of elements.
+*/
+
+/* 
+Style the div component whose unique id is "page"
+*/
+#page {   
+
+    font-family: "Times New Roman", Times, Serif;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    color: black;    
+    padding: 0px;
+    margin: 0px;
+}
+
+/* 
+Style the div component whose unique id is "header"
+*/
+#header {
+    background-color: #F2EFE4;  
+    background-image: url("../resources/images/concretebg.png");
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    margin-bottom: 16px;
+}
+
+/* 
+Style the div component whose unique id is "editableContent" 
+*/
+#editableContent {
+    width: 100%;
+    height: 100%; 
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 90px;
+    margin-bottom: 18px;
+    padding: 0px;
+}
+
+/* 
+Style the div component whose unique id is "sliderFrame" 
+*/
+#sliderFrame {
+    opacity: 1;
+    padding-top: 50px;
+}
+
+/* 
+Style the div component whose unique id is "footer"
+*/
+#footer {
+    /*    background-color: #ecc279;    Linen */
+    width: 100%;
+    height: 80px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    box-shadow: 0px 500px 0px 500px #f2efe4;
+
+    background-color: #f2efe4;
+    background-image: url("../resources/images/concretebg.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+/* 
+Style the div component whose unique id is "footerPanelGrid" per reference
+<h:panelGrid id="footerPanelGrid" columns="2"> in footerTemplate.xhtml 
+*/
+#footerPanelGrid {
+    width: 100%;
+    padding-right: 20px;
+}
+
+/* 
+Style the div component whose unique id is "rightAlignPanelGroup" per reference
+<h:panelGroup id="rightAlignPanelGroup"> in footerTemplate.xhtml 
+*/
+#rightAlignPanelGroup {
+    float: right;
+}
+
+/* 
+Place the pizza hut logo image on the left top corner per reference
+<h:panelGrid columns="2" columnClasses="leftTopCornerAlign, rightTopCornerAlign">
+in headerTemplate.xhtml
+*/
+.leftTopCornerAlign {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0px;
+}
+
+/* 
+Place the navigation menu bar on the right top corner per reference
+<h:panelGrid columns="2" columnClasses="leftTopCornerAlign, rightTopCornerAlign">
+in headerTemplate.xhtml 
+*/
+.rightTopCornerAlign {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    padding: 0px;
+}
+
+/* 
+Right align column 1 text and disallow line breaks per reference
+<p:panelGrid columns="2" columnClasses="columnOne, columnTwo">
+in CreateAccount.xhtml, SignIn.xhtml, EditAccount.xhtml, and Profile.xhtml 
+*/
+.columnOne {
+    text-align: right;
+    white-space: nowrap;  /* Disallow line break */
+}
+
+/* 
+Left align column 2 text and disallow line breaks per reference
+<p:panelGrid columns="2" columnClasses="columnOne, columnTwo">
+in CreateAccount.xhtml, SignIn.xhtml, and Profile.xhtml 
+*/
+.columnTwo {
+    text-align: left;
+    white-space: nowrap;  /* Disallow line break */
+}
+
+/*
+current movies table rows styling
+for thumbnails, movie description and the arrow button
+*/
+.thumbnail{
+    margin: auto;
+    float:right; 
+    width:60px;
+}
+
+.description{
+    padding: 0;
+    width:350px;
+}
+.arrow{
+    width:20px;
+}
+
+.ui-dialog-title{
+    float:none !important;
+}
+
+.fixed-size>*>tr,
+.fixed-size.ui-panelgrid .ui-panelgrid-cell {
+    table-layout: fixed;
+    word-wrap: break-word;
+    border: 0px solid navy !important; 
+    background-color: #F6F3EC;
+}
+
+.rowlink{
+    text-decoration: none !important;
+}
+
+/* 
+Style the div component whose class is "sliderInner" 
+*/
+.sliderInner{
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.05),0 1px 0 rgba(255,255,255,.075);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
+}
+
+/*
+Style the video element to set it as a background
+*/
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(resources/images/bg.jpg) no-repeat;
+
+}
+
+/*
+==================================
+Social Media Buttons Spin Animated
+==================================
+Animate the social media icons in footerTemplate.xhtml by spinning them
+360 degrees on mouseover (hovering over).
+
+CSS Transitions allow property changes in CSS values to occur smoothly over a
+specified duration. This smoothing animates the changing of a CSS value when
+triggered by a mouse click. The timing function value “all ease 0.3s” allows
+the speed of the transition to change over time. 
+*/
+.social-roll {
+    height: 36px;
+    width: 36px;
+    margin: 5px;  /* Space between social media icons */
+    float: left;
+    border-radius: 50%;
+    -webkit-transition: all ease 0.3s;  /* For WebKit */
+    -moz-transition: all ease 0.3s;     /* For Mozilla */
+    -o-transition: all ease 0.3s;       /* For Opera */
+    -ms-transition: all ease 0.3s;      /* For IE10+ */
+    transition: all ease 0.3s;          /* Generic */
+}
+
+/* Mouseover (hovering over) the social media icon animates its 360-degree rotation */
+.social-roll:hover {
+    -webkit-transform:rotate(360deg);  /* For WebKit */
+    -moz-transform:rotate(360deg);     /* For Mozilla */
+    -o-transform:rotate(360deg);       /* For Opera */
+    -ms-transform:rotate(360deg);      /* For IE10+ */
+    transform:rotate(360deg);          /* Generic */
+}
+
+/*
+=================================
+Skinning PrimeFaces UI Components
+=================================
+
+Position the confirmation dialog box on the center of the screen per
+reference <p:confirmDialog id="confirmDialogBox" ...> in Profile.xhtml
+*/
+#confirmDialogBox {
+    top: 50%;
+    left: 50%;
+}
+
+/* Leave 15px space to the right of the p:dataTable */
+.dataTable {
+    padding-right: 15px;
+}
+
+/*
+================================================
+Auto-generated jsfcrud.css content is given here
+================================================
+*/
+
+/* 
+Set font size in ui-widget styled elements to 12px.
+
+The !important directive forces the style to be applied no matter
+where the style appears in the CSS document.
+*/
+.ui-widget {
+    font-size: 12px !important;
+    background-color: #F6F3EC;
+}
+
+/* Set the background color for the data scroller and primefaces panels */
+.ui-datascroller, .ui-datascroller-content {
+    background-color: #F6F3EC;
+    width:450px;
+}
+.ui-datascroller-header {
+    width: 450px;
+}
+
+.ui-panel {
+    background-color: #F0FFFF;
+}
+
+/* The overflow property specifies what happens if content overflows an element's box. */
+.ui-layout-north {
+    z-index: 20 !important;
+    overflow: visible !important;
+}
+.ui-layout-north .ui-layout-unit-content {
+    overflow: visible !important;
+}
+/* This styles the <p:panel header="..."> */
+.ui-widget-header {
+    text-align: center;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+/* Leave 10px pading on top for the ui-button elements */
+.ui-button {
+    margin-top: 10px !important;
+}
+
+.travelModeGroup {
+    margin-left: 30px;
+}
+
+/* ----------Styling for the search box------------- */
+
+#searchbox
+{
+    background: #eaf8fc;
+    background-image: -moz-linear-gradient(#fff, #F2EFE4);
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #F2EFE4),color-stop(1, #fff));
+
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #F2EFE4 #F2EFE4 #F2EFE4;            
+    width: 500px;
+    height: 35px;
+    padding: 10px;
+    margin: 100px auto 20px;
+    overflow: hidden;
+}
+
+.search, .submit
+{
+    float: left;
+}
+
+.search
+{
+    padding: 5px 9px;
+    height: 23px;
+    width: 380px;
+    border: 1px solid #a4c3ca;
+    font: normal 13px 'trebuchet MS', arial, helvetica;
+    background: #f1f1f1;
+
+    -moz-border-radius: 50px 3px 3px 50px;
+    border-radius: 50px 3px 3px 50px;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+.submit
+{		
+    background: #cc0033;
+    background-image: -moz-linear-gradient(#ff809f, #cc0033);
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #cc0033),color-stop(1, #ff809f));
+
+    -moz-border-radius: 3px 50px 50px 3px;
+    border-radius: 3px 50px 50px 3px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #7eba7c #578e57 #447d43;
+
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;   		
+
+    height: 35px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    width: 90px;
+    cursor: pointer;
+    font: 15px Arial, Helvetica;
+    color: #F2EFE4;
+
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.submit:hover
+{		
+    background: #95d788;
+    background-image: -moz-linear-gradient(#cc0033, #ff809f);
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #ff809f),color-stop(1, #cc0033));
+}	
+
+.submit:active
+{		
+    background: #ff809f;
+    outline: none;
+
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+.submit::-moz-focus-inner
+{
+    border: none;
+}		
+
+.search::-webkit-input-placeholder {
+    color: #9c9c9c;
+    font-style: italic;
+}
+
+.search:-moz-placeholder {
+    color: #9c9c9c;
+    font-style: italic;
+}    
+
+.search:focus
+{
+    border-color: #8badb4;
+    background: #fff;
+    outline: none;
+}	
